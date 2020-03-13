@@ -1,0 +1,18 @@
+from PyQt5 import QtWidgets, QtGui, QtCore
+import ConsoleConfig
+
+import importlib
+
+
+class EventControler:
+    def __init__(self, ui, viewModel):
+        self.ui = ui
+        self.viewModel = viewModel
+        self.dataProxy = importlib.import_module(ConsoleConfig.dataProxy).
+
+    def addSite(self):
+
+        
+    def showView(self):
+        
+        

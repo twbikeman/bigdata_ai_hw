@@ -3,4 +3,5 @@ ui = "AlertConsoleView"
 
 #controller
 event = "AlertConsoleEvent"
-#eventController = "AlertConsoleController"
+eventController = "AlertConsoleController"
+dataProxy = "LocalDataProxy"
