@@ -1,0 +1,22 @@
+import PythonStorage
+
+class DataProxy():
+    def __init__(self):
+        self.__pythonStorage = PythonStorage.PythonStorage
+
+    def setTarget(self, target):
+        self.__target = target
+        
+    def setSite(self, site):
+        site['videos'] = {}
+        self.__pythonStorage[site['id']] = site
+        
+
+if __name__ == '__main__':
+    DataProxy test
+    test.setSite({'id': 123, 'name': 'test'})
+    test.setTarget(1)
+    
+    
+    
+        
