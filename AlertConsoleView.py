@@ -2,13 +2,11 @@
 
 # Form implementation generated from reading ui file 'AlertConsoleView.ui'
 #
-# Created by: PyQt5 UI code generator 5.14.1
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
-
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -18,6 +16,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox.setGeometry(QtCore.QRect(170, 260, 401, 171))
+        self.groupBox.setTitle("")
         self.groupBox.setObjectName("groupBox")
         self.siteComboBox = QtWidgets.QComboBox(self.groupBox)
         self.siteComboBox.setGeometry(QtCore.QRect(130, 30, 86, 25))
@@ -64,7 +63,6 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.groupBox.setTitle(_translate("MainWindow", "GroupBox"))
         self.label.setText(_translate("MainWindow", "場域"))
         self.setSiteButton.setText(_translate("MainWindow", "新增"))
         self.label_6.setText(_translate("MainWindow", "名稱"))
@@ -72,3 +70,4 @@ class Ui_MainWindow(object):
         self.label_3.setText(_translate("MainWindow", "107598064"))
         self.label_4.setText(_translate("MainWindow", "蔡宗哲"))
         self.label_5.setText(_translate("MainWindow", "學生"))
+

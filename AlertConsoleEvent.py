@@ -11,7 +11,8 @@ class AlertConsoleEvent(QtWidgets.QMainWindow):
 
 
         self.viewModel = {
-            'siteCombbox': ['請選擇'],
+            'siteComboBox': ['請選擇'],
+            'selectedSiteIndex': 0,
         }
 
 
@@ -19,5 +20,9 @@ class AlertConsoleEvent(QtWidgets.QMainWindow):
         self.ui = importlib.import_module(ConsoleConfig.ui).Ui_MainWindow()
         self.ui.setupUi(self)
 
-        self.eventController = importlib.import_module(ConsoleConfig.eventController).eventController(self.ui, self.viewModel)
-        
+        self.eventController = importlib.import_module(ConsoleConfig.eventController).EventController(self.ui, self.viewModel)
+
+        self.eventController.showView()
+
+        self.ui.setSiteButton.clicked.connect(self.eventController.addSite)
+        self.ui.siteComboBox.activated.connect(self.eventController.selectSite)
