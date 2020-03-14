@@ -13,6 +13,8 @@ class AlertConsoleEvent(QtWidgets.QMainWindow):
         self.viewModel = {
             'siteComboBox': ['請選擇'],
             'selectedSiteIndex': 0,
+            'videoComboBox': ['請選擇'],
+            'selectedVideoIndex': 0,
         }
 
 
