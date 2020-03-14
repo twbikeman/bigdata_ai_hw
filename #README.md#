@@ -1,9 +1,0 @@
-viewModel
-
-eventControll <- connect
-
-os.environ['QT_IM_MODULE'] = 'ibus'
-
-qtchooser -run-tool=designer -qt=5
-
-pyuic5 -o 
