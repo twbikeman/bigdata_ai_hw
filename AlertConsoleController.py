@@ -27,7 +27,14 @@ class EventController:
         
 
     def addVideo(self):
-#        videoId = 'v' + str(len(self.viewModel['videoComboBox']))
+        videoId = 'v' + str(len(self.viewModel['videoComboBox']))
+        self.DataProxy.setTarget({'siteId': self.selectedSiteId, 'videoId': videoId})
+        video = {
+            'id': videoId,
+            'name': self.ui.videoNameLineEdit.text()
+        }
+        self.dataProxy.setVideo(Video)
+        self.showView()
         
         
     def showView(self):
@@ -35,3 +42,11 @@ class EventController:
         self.viewModel['siteComboBox'] = list(map(lambda x: x['name'],self.dataProxy.getSites()))
         self.ui.siteComboBox.addItems(['請選擇'] + self.viewModel['siteComboBox'])
         self.ui.siteComboBox.setCurrentIndex(self.viewModel['selectedSiteIndex'])
+
+#        self.ui.videoComboBox.clear()
+
+    # def showVideoComboBox(self):
+    #     if self.viewModel['selectSiteIndex'] != 0:
+    #         self.dataProxy.setTarget({'siteId': self.selectedSiteId})
+    #         self.veiwModel['videoComboBox'] = list(map(lambda x : x['name'], self.dataProxy.getVideos))
+    #         self.ui.videoComboBox.addItemsche

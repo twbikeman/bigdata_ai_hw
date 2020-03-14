@@ -47,18 +47,18 @@ class DataProxy():
 
         
         
-if __name__ == '__main__':
-    test = DataProxy()
-    test.setSite({'id': '200', 'name': 'test1'})
-    test.setSite({'id': '201', 'name': 'test2'})
-    test.setSite({'id': '202', 'name': 'test3'})
-    test.setTarget({'siteId': '200', 'videoId': 'v01'})
-    video = {'id' : 'v01', 'name' : 'video1' }
-    test.setVideo(video)
-    video = {'id' : 'v02', 'name' : 'video2' }
-    test.setVideo(video)
+# if __name__ == '__main__':
+#     test = DataProxy()
+#     test.setSite({'id': '200', 'name': 'test1'})
+#     test.setSite({'id': '201', 'name': 'test2'})
+#     test.setSite({'id': '202', 'name': 'test3'})
+#     test.setTarget({'siteId': '200', 'videoId': 'v01'})
+#     video = {'id' : 'v01', 'name' : 'video1' }
+#     test.setVideo(video)
+#     video = {'id' : 'v02', 'name' : 'video2' }
+#     test.setVideo(video)
     
-    print(test.getVideo())
+#     print(test.getVideo())
     
     
     
