@@ -4,4 +4,6 @@ eventControll <- connect
 
 os.environ['QT_IM_MODULE'] = 'ibus'
 
-sudo apt install python3-opencv
+qtchooser -run-tool=designer -qt=5
+
+pyuic5 -o 
