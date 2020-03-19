@@ -263,7 +263,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string>none</string>
      </property>
     </widget>
    </widget>
@@ -318,7 +318,7 @@
       <string>統計</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="recognitionPathButton">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -381,6 +381,19 @@
      </property>
      <property name="text">
       <string>報表</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="recognitionPathLabel">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>40</y>
+       <width>67</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>none</string>
      </property>
     </widget>
    </widget>

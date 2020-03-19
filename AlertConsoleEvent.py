@@ -12,8 +12,10 @@ class AlertConsoleEvent(QtWidgets.QMainWindow):
 
         self.viewModel = {
             'siteComboBox': ['請選擇'],
-            'selectedSiteIndex': 0,
             'videoComboBox': ['請選擇'],
+            'alerBotCounts': {'siteCount':0, 'videoCount':0, 'frameCount':0},
+            'videoData': {'videoName':'', 'frameCount':0, 'normalCount':0, 'abnormalCount':0},
+            'selectedSiteIndex': 0,
             'selectedVideoIndex': 0,
         }
 
@@ -31,7 +33,7 @@ class AlertConsoleEvent(QtWidgets.QMainWindow):
 
         self.ui.videoPathButton.clicked.connect(self.selectVideoFile)
 
-
+        self.ui.recognitionPathButton.clicked.connect(self.selectRecognitionFile)
 
         
     def selectVideoFile(self):
@@ -40,3 +42,11 @@ class AlertConsoleEvent(QtWidgets.QMainWindow):
             print('none')
             return
         self.ui.videoPathLabel.setText(videoFile)
+
+
+    def selectRecognitionFile(self):
+        recognitionFile, filetype = QtWidgets.QFileDialog.getOpenFileName(self, 'select file', self.cwd, "All Files (*);;Text files (*.txt)")
+        if recognitionFile == '':
+            print('none')
+            return
+        self.ui.recognitionPathLabel.setText(recognitionFile)
