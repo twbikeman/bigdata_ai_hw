@@ -14,3 +14,7 @@ sudo apt-get install qttools5-dev-tools <== designer
 
 pyuic5 AlertConsoleView.ui -o AlertConsoleView.py
 
+
+'''
+self.videoTableWidget = 
+'''

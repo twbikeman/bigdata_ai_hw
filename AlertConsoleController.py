@@ -45,7 +45,22 @@ class EventController:
         self.ui.siteComboBox.addItems(['請選擇'] + self.viewModel['siteComboBox'])
         self.ui.siteComboBox.setCurrentIndex(self.viewModel['selectedSiteIndex'])
 
-#        self.ui.videoComboBox.clear()
+        self.showVideoData()
+
+
+
+
+    def showVideoData(self):
+        self.ui.videoTableWidget.setItem(1, -1, QtWidgets.QTableWidgetItem(str(self.viewModel['videoData']['videoName'])))
+        self.ui.videoTableWidget.setItem(1, 0, QtWidgets.QTableWidgetItem(str(self.viewModel['videoData']['frameCount'])))
+        self.ui.videoTableWidget.setItem(1, 1, QtWidgets.QTableWidgetItem(str(self.viewModel['videoData']['normalCount'])))
+        self.ui.videoTableWidget.setItem(1, 2, QtWidgets.QTableWidgetItem(str(self.viewModel['videoData']['abnormalCount'])))
+
+
+
+
+
+    #        self.ui.videoComboBox.clear()
 
     # def showVideoComboBox(self):
     #     if self.viewModel['selectSiteIndex'] != 0:

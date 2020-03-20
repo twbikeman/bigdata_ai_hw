@@ -14,7 +14,7 @@ class AlertConsoleEvent(QtWidgets.QMainWindow):
             'siteComboBox': ['請選擇'],
             'videoComboBox': ['請選擇'],
             'alerBotCounts': {'siteCount':0, 'videoCount':0, 'frameCount':0},
-            'videoData': {'videoName':'', 'frameCount':0, 'normalCount':0, 'abnormalCount':0},
+            'videoData': {'videoName':'wait', 'frameCount':0, 'normalCount':0, 'abnormalCount':0},
             'selectedSiteIndex': 0,
             'selectedVideoIndex': 0,
         }

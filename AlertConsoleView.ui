@@ -459,7 +459,7 @@
       </property>
      </item>
     </widget>
-    <widget class="QTableWidget" name="tableWidget">
+    <widget class="QTableWidget" name="siteTableWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
