@@ -7,7 +7,13 @@ pip install -r requirements.txt
 
 
 ----------linux-----------------------
-viewModel
+
+sudo apt install3-pip
+
+sudo -H pip3
+
+sudo apt install install  firebase_admin
+
 
 os.environ['QT_IM_MODULE'] = 'ibus'
 
