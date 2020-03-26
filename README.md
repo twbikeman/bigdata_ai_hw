@@ -67,4 +67,9 @@ self.storageBot = importlib.import_module(controllerConfig.storageBot).storageBo
 https://youtu.be/MmUNEZ8nUH8
 
 https://youtu.be/RT1FLGpRk40
+=======
+sudo apt install python3-pip
+
+sudo -H pip3 install firebase-admin
+
 

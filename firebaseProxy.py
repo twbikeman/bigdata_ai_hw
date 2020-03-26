@@ -1,0 +1,26 @@
+
+import firebase_admin
+from firebase_admin import firestore
+from firebase_admin import credentials
+import firebase_admin
+
+import firebaseProxyConfig
+import firebaseInit
+
+
+class DataProxy:
+
+    def __init__(self):
+        self.dataBase = firestore.client().collection('myFirestore').document('myAlertBot')
+
+
+    def __getSiteCollection(self):
+        return self.dataBase.collection("sites")
+
+    def addSite(self):
+        self.__getSiteCollection().add({"123":"123"}) 
+        
+
+if __name__ == '__main__':
+    dataProxy = DataProxy()
+    dataProxy.addSite()    

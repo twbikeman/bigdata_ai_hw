@@ -1,0 +1,8 @@
+import firebaseProxyConfig
+import firebase_admin
+from firebase_admin import credentials
+
+cred = credentials.Certificate(firebaseProxyConfig.keyFile)
+firebase_admin.initialize_app(cred, {'storageBucket': firebaseProxyConfig.storageBucket})
+print("test")
+
