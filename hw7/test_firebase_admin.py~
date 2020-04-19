@@ -1,0 +1,9 @@
+import firebase_admin
+
+from firbase_admin import firestore
+from firebase_admin import credentials
+
+
+
+cred = credentials.Certificate('aibigdata-274614.json')
+firebase_admin.initialize_app(cred, {storageBucket': 'aibigdata-2714614.appspot.com'})
