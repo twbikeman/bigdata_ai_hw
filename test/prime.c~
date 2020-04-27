@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <math.h>
+
+int prime(int x) {
+  int i;
+  for (i = 2; i < (int)sqrt((double)x); i++)
+    if (x % i == 0) return 0;
+  return 1;
+}
+
+
+int  calcPrime(int start, int end, int *buf) {
+  int i, num = 0;
+  for (i = start; i <= end ; i++)
+    if (prime(i) == 1) {
+      *buf++ = i;
+      num++;
+    }
+    
+  return num;
+}
+
+int main() {
+  int buf[100], num;
+  num = calPrime(2, 13, buff);
+  printf("%d\n",num);	 
+
+  return 0;
+}
