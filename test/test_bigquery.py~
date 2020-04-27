@@ -1,0 +1,5 @@
+from google.oauth2 import service_account
+from google.cloud import bigquery
+
+if __name__ == '__main__':
+    printf('success!')
