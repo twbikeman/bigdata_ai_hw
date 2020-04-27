@@ -1,8 +1,9 @@
 import requests
 
-response = requests.get('https://aibigdata-ntut-107598064.an.r.appspot.com/美國/100')
 
-print(response.content);
+response = requests.get('https://aibigdata-ntut-107598064.an.r.appspot.com/美國')
+
+print(response.content.decode('utf-8'));
 #  .status_code
 # .content
 # gcloud app deploy
