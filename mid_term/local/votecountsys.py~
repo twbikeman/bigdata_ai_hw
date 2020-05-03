@@ -1,0 +1,27 @@
+from PyQt5 import QtWidgets
+import requests
+import sys
+
+import client_ui
+import env_config
+import consoleEvent
+
+
+
+model = {
+    'country': None,
+    'candiate': None,
+    'votes': None
+}
+
+
+app = QtWidgets.QApplication([])
+ui = client_ui.Ui_MainWindow()
+
+
+
+window = consoleEvent.localConsoleEvent(ui)
+
+
+window.show()
+sys.exit(app.exec_())
