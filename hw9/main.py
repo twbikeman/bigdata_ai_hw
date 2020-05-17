@@ -2,8 +2,10 @@ from PyQt5 import QtWidgets
 import sys
 
 import alertbot_ui
-from camera import camera
-import film_source
+from source_camera import source_camera
+from source_rtsp import source_rtsp
+from source_http import source_http
+
 
 class Event(QtWidgets.QMainWindow):
     def __init__(self, ui):
@@ -39,11 +41,20 @@ class Event(QtWidgets.QMainWindow):
         view_model['source_url'].append(url)
 
         if type == 'camera':
-            self.source = camera()
-        
+            self.source = source_camera()
+        elif type == 'rtsp':
+            self.source = source_rtsp(url)
+        elif type == 'http':
+            self.source = source_http(url)
+        else:
+            self.source = object()
         print(view_model)
     def __record(self):
-        if isinstance(self.source, camera) :
+        if isinstance(self.source, source_camera):
+            self.source.record()
+        elif isinstance(self.source, source_rtsp):
+            self.source.record()
+        elif isinstance(self.source, source_http):
             self.source.record()
         else:
             pass

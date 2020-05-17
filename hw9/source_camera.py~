@@ -1,8 +1,11 @@
 import cv2
+import time
 
-class camera():
+from task_storage import task_storage
+
+class source_camera():
     def __init__(self):
-        pass
+        self.flowModel = {'image':None, 'timestamp':None }
     def record(self):
         videoSource = cv2.VideoCapture(0)
         while True:
@@ -11,5 +14,8 @@ class camera():
             cv2.imshow('camera', frame)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
+            self.flowModel['image'] = cv2.imencode('.jpg', frame)[1].tostring()
+            self.flowModel['timestamp'] = int(time.time())
+            print(self.flowModel['timestamp'])
         videoSource.release()
         cv2.destroyAllWindows()
