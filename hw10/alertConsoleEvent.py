@@ -21,8 +21,7 @@ class AlertConsoleEvent(QtWidgets.QMainWindow):
     def setVideoToStorageEvent(self):
         self.constroller.handleVideos()
     def stopVideoEvent(self):
-        source = HttpSource()
-        source.startStreaming()
+        print('gOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOD')
         # viewModel = self.viewModel
         # viewModel['streaming'] = False
         # print('stop')

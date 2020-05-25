@@ -1,0 +1,6 @@
+import firestoreDataProxy
+from firestoreDataProxy import DataProxy
+
+dataproxy = DataProxy()
+
+dataproxy.setBot({'name': 'Brayn', 'salary': 100})

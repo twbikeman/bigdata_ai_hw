@@ -18,8 +18,10 @@ class AlertBotController():
         source = HttpSource()
         t1 = threading.Thread(target = self.test, daemon = True)
         t1.start()
-        t2 = threading.Thread(target = source.startStreaming, daemon = True)
-        t2.start()
+        source.startStreaming()
+        
+
+        
         
 
 

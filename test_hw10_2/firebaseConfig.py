@@ -1,0 +1,5 @@
+keyFile = 'aibigdata-ntut-107598064-firebase.json'
+storageBucket = 'aibigdata-ntut-107598064.appspot.com'
+
+myDatabase = 'myFirestore'
+alertBotDatabase = 'myAlertBot'
