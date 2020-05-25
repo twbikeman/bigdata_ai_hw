@@ -1,0 +1,31 @@
+import queue
+from httpSource import HttpSource
+import threading
+import time
+
+
+class AlertBotController():
+    def __init__(self):
+        self.dataModel = {}
+        self.frameQueue = queue.Queue()
+
+    def test(self):
+        while True:
+            print('test')
+            time.sleep(1)
+
+    def handleVideos(self):
+        
+        # t1 = threading.Thread(target = self.test)
+        # t1.start()
+        # t1.join();
+        j = HttpSource()
+        t1 = threading.Thread(target = j.startStreaming)
+        t1.start()
+        t1.join()
+        
+
+
+
+   
+

@@ -1,0 +1,22 @@
+
+from httpSource import HttpSource
+import cv2
+
+import threading
+
+
+
+http = HttpSource()
+
+
+t1 = threading.Thread(target = http.startStreaming(), daemon = True)
+t1.start()
+print('exit')
+
+# while not _queue.empty():
+#     item = _queue.get()
+#     image = item[0];
+#     filename = item[1];
+#     print(filename)
+#     cv2.imwrite(str(filename) + '.png', image)
+    
