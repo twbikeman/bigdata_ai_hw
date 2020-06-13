@@ -1,0 +1,20 @@
+from google.oauth2 import service_account
+from google.cloud import bigquery
+
+class BigqueryProxy:
+    def __init__(self):
+        self.credentials = service_account.Credentials.from_service_account_file('aibigdata-ntut-107598064-bigquery.json')
+        self.projectId = 'aibigdata-ntut-107598064'
+        self.client = bigquery.Client(project = self.projectId, credentials = self.credentials)
+        self.datasetId = 'test'
+
+    def insertRowToBigdata(self, tableId, insertData):
+        table = self.client.dataset(self.datasetId).table(tableId)
+        schema = self.client.get_table(table).schema
+        result = self.client.insert_rows(table, insertData, selected_fields = schema)
+
+    def injectMonitorTag(self, monitorModel):
+        self.insertRowToBigdata('mytest', [monitorModel])
+        
+        
+        

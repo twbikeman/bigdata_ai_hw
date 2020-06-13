@@ -1,0 +1,13 @@
+import time
+import threading
+
+
+def monitor(function):
+    def _monitor(*args, **kwargs):
+    	t0 = time.time()
+    	result = function(*args)
+    	t1 = time.time()
+	
+
+    return _monitor
+

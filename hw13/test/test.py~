@@ -1,0 +1,36 @@
+import random
+from workflow.engine import GenericWorkflowEngine
+import time
+
+
+def recognize(dataModel, eng):
+    runtime = random.random() * 0.100 + 0.800
+    time.sleep(runtime)
+    print(runtime)
+
+def capture(dataModel, eng):
+    runtime = random.random() * 0.100 + 0.01
+    time.sleep(runtime)
+    print(runtime)
+
+
+def notify(dataModel, eng):
+    runtime = random.random() * 0.100 + 1.700
+    time.sleep(runtime)
+    print(runtime)
+
+    
+if __name__ == '__main__':
+    taskflow = [recognize, capture, notify]
+    flowEngine = GenericWorkflowEngine()
+    flowEngine.callbacks.replace(taskflow)
+
+    dataModel = {
+        'timestamp': int(time.time())
+    }
+    flowEngine.process([dataModel])
+    
+    
+    
+    
+    

@@ -1,0 +1,23 @@
+import time
+import threading
+
+
+def monitor(function):
+    def _monitor(*args, **kwargs):
+        dataModel = args[0]
+        id = str(dataModel['timestamp'])
+        t0 = time.time()
+        result = function(*args)
+        t1 = time.time()
+        taskName = function.__name__
+        monitorTag = {
+            'id': id,
+            'taskName': taskName,
+            'beginTime': t0,
+            'endTime': t1,
+            'taskTime': round((t1-t0) * 1000, 2)
+        }
+        print(monitorTag)
+    return _monitor
+
+
