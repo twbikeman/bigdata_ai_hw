@@ -1,0 +1,4 @@
+from  fetch import fetch
+test = fetch()
+test.set('605')
+test.printbus()
