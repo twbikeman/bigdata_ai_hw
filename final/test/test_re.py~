@@ -1,0 +1,11 @@
+import re
+content = ''''
+sdfsadf
+<p>
+333
+</p>
+asdsf
+'''
+result = re.search('<p>\s+(\w+)\s+</p>', content, re.S)
+print(result.group(1))
+
