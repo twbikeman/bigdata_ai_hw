@@ -1,0 +1,39 @@
+from flask import Flask, request, Response
+
+from linebot import WebhookParser, LineBotApi
+from linebot.models import MessageEvent, TextMessage, TextSendMessage
+
+
+import chatBotConfig
+
+from fetch import fetch
+
+
+app = Flask(__name__) 
+
+line_bot_api = LineBotApi(chatBotConfig.channel['accessToken'])
+
+query = fetch()
+
+@app.route('/callback', methods=['POST'])
+def callback():
+    signature = request.headers['X-Line-Signature']  
+    body = request.get_data(as_text = True)
+    events = WebhookParser(chatBotConfig.channel['channelSecret']).parse(body, signature)
+    lineId = events[0].source.user_id
+    bus = events[0].message.text
+    query.set(bus)
+    line_bot_api.push_message(lineId, TextSendMessage(text = query.gettime()))
+    return 'OK'
+
+
+@app.route('/')
+def hello():
+    return 'Ok'
+
+
+
+
+
+if __name__ == '__main__':
+    app.run(host = '0.0.0.0')
