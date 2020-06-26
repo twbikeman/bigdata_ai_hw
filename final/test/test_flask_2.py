@@ -1,7 +1,7 @@
 from flask import Flask, request, Response
 
 from linebot import WebhookParser, LineBotApi
-from linebot.models import MessageEvent, TextMessage, TextSendMessage
+from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
 
 
 import chatBotConfig
@@ -23,7 +23,15 @@ def callback():
     lineId = events[0].source.user_id
     bus = events[0].message.text
     query.set(bus)
-    line_bot_api.push_message(lineId, TextSendMessage(text = query.gettime()))
+    pic_url = 'https://storage.googleapis.com/aibigdata-ntut-107598064.appspot.com/bus/1593174590.jpg'
+    if (query.gettime()):
+        text = query.getbus() + '\n' + query.getdest() + '\n' + query.gettime()
+    else:
+        text = query.getbus() + '\n' + query.getdest() + '\n' + query.getstatus()
+
+    print(text)
+    line_bot_api.push_message(lineId, TextSendMessage(text = text, disable_web_page_preview = True))
+    line_bot_api.push_message(lineId, ImageSendMessage(original_content_url='https://storage.googleapis.com/aibigdata-ntut-107598064.appspot.com/bus/1593174590.jpg', preview_image_url = 'https://storage.googleapis.com/aibigdata-ntut-107598064.appspot.com/bus/1593174590.jpg'))
     return 'OK'
 
 

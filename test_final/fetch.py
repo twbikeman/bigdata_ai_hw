@@ -1,18 +1,15 @@
-
 import re
 from selenium import webdriver
 import time
 
 class fetch():
     def __init__(self):
-        self.driver = webdriver.Chrome("./chromedriver")            
-        self.driver.get("https://ebus.gov.taipei/VirtualStop/1156800620")
-        self.html = self.driver.page_source
+        self.driver = webdriver.Chrome("./chromedriver")
         self.bus = ''
         self.dest = ''
         self.time = ''
-
-
+        self.status = ''
+        
     def getbus(self):
         return self.bus
     
@@ -22,19 +19,51 @@ class fetch():
     def gettime(self):
         return self.time
 
+    def getstatus(self):
+        return self.status
     
     def set(self, bus):
         self.bus = bus
-        pattern = '<p class="auto-list-routelist-bus">{}</p>(.*?)</a>'
-        match = re.search(pattern.format(self.bus), self.html, re.S)
-        match2 = re.search('<img.*?>(.*?)</p>',match.group(1), re.S)
-        self.dest = match2.group(1).replace("\n","")
-        self.dest = self.dest.replace(" ","")
-        self.dest = self.dest.replace("　","")
-        match2 = re.search('time-in">(.*?)</span>',match.group(1), re.S)
-        self.time = match2.group(1)
-
+        self.driver.get("https://ebus.gov.taipei/VirtualStop/1156800620")
+        html = self.driver.page_source
         
-    def __del__(self):
-        self.driver.quit()
 
+        pattern = f'<p class="auto-list-routelist-bus">{self.bus}.*?<\/a>'
+        
+        match = re.search(pattern, html, re.S)
+        section = match.group(0)
+
+        pattern_place = '<img.*?>(.*?)<\/p>'
+        match_place = re.search(pattern_place, section, re.S)
+
+        if (match_place != None):
+            self.dest = match_place.group(1).replace('\n','').replace(' ','')
+
+        pattern_time = '<span.*?time-in.*?>(.*?)<\/span>'
+        match_time = re.search(pattern_time, section, re.S)
+        if (match_time != None):
+            self.time = match_time.group(1)
+
+        else:
+            self.time = ''
+
+        pattern_status = '<span.*?position-none.*?>(.*?)<\/span>'
+
+        match_status = re.search(pattern_status, section, re.S)
+        if (match_status != None):
+            self.status = match_status.group(1)
+
+        pattern_status = '<span.*?position-now.*?>(.*?)<\/span>'
+
+        match_status = re.search(pattern_status, section, re.S)
+        if (match_status != None):
+            self.status = match_status.group(1)
+    
+
+
+        print(self.bus)
+        print(self.dest)
+        print(self.time)
+        print('status: ' + self.status)
+
+ 

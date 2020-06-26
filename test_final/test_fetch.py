@@ -1,9 +1,5 @@
 from  fetch import fetch
 test = fetch()
-test.set('605副')
-print(test.getbus())
-print(test.gettime())
-print(test.getdest())
-
-
+test.set('藍21副')
 del test
+

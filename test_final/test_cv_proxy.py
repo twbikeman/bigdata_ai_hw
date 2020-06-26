@@ -1,0 +1,14 @@
+from cv_proxy import cv_proxy
+import firebase_init
+from firebase_init import storage_proxy
+
+my_storage_proxy = storage_proxy()
+
+
+my_cv_proxy = cv_proxy()
+model = my_cv_proxy.getpicture()
+print('---------------')
+print(model['timestamp'])
+
+my_storage_proxy.upload(model)
+del my_cv_proxy
