@@ -5,6 +5,7 @@ import time
 class fetch():
     def __init__(self):
         self.driver = webdriver.Chrome("./chromedriver")
+        self.driver.implicitly_wait(10)
         self.bus = ''
         self.dest = ''
         self.time = ''
