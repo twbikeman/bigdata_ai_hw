@@ -1,4 +1,4 @@
 line-bot-sdk
-Flask==1.1.1
+Flask==2.3.2
 firebase_admin
 PyJWT
